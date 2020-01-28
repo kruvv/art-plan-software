@@ -1,9 +1,10 @@
 /**
  * 
  */
-package ru.kruvv.artplansoft.controllers;
+package ru.kruvv.artplansoft.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -13,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class AnimalsController {
 
-	@RequestMapping({"/", "/home"})
-	public String animal() {
+	@RequestMapping("/")
+	public String animal(Model model ) {
 		return "animals";
 	}
 	
