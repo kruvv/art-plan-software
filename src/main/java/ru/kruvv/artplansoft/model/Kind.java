@@ -3,18 +3,16 @@
  */
 package ru.kruvv.artplansoft.model;
 
-import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Data;
-
 
 /**
  * @author <Viktor Krupkin>
@@ -22,17 +20,15 @@ import lombok.Data;
  */
 @Data
 @Entity
-@Table(name = "animals")
-public class Animal implements ComboListItem {
-	
+@Table(name = "kinds")
+public class Kind {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;	
-	private String name;
-	private String sex;	
-	private Date birthday;
-	@ManyToOne
-	@JoinColumn(name = "kind_id")
-	private Kind kind;
+	private Long id;
 	
+	private String type;
+	
+	@OneToMany(mappedBy = "kind")
+	private List<Animal> type_animal;
 }

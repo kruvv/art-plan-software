@@ -10,11 +10,28 @@ var app = angular.module("ArtPlanSoftware", []);
 		
 			}).then(function successCallback(response) {
 				$scope.websites = response.data.content;
-				console.log($scope.websites);
+				//console.log($scope.websites);
 			  });
 		
 	});
-
+	
+	$('#addModal').on('hide.bs.modal', function () {
+		console.log("I there!!!")
+	app.controller("AppCtrl", function($scope, $http) {
+		$scope.response = {};
+		$scope.save = function(answer, addAnimal) {
+			if(addAnimal.$valid){
+				$http.post('http://localhost:9090/api/animals/add', answer).then(
+						function success(response) {
+							$scope.response = response.data;
+							console.log("Data sending!!!")
+						}
+				);
+			}
+		}
+		
+	});
+ });
 
 
 $(document).ready(function() {
@@ -54,8 +71,9 @@ $(document).ready(function() {
 		var contentId = button.data('contentid');
 		var contentName = button.data('contentname');
 		//output this information to an element having id = "content"
-		$(this).find('#contentId').text(contentId);
-		$(this).find('#contentName').text(contentName);
+		var modal = $(this)
+		modal.find('#contentId').text(contentId);
+		modal.find('#contentName').text(contentName);
 	});
 	
 	
@@ -69,10 +87,12 @@ $(document).ready(function() {
 		var contSex = button.data('contsex');
 		var contBirthday = button.data('contbirthday').slice(0, 10);
 		//output this information to an element having id = "cont**"
-		$(this).find('#contName').text(contName);
-		//$(this).find('#contKind').text(contKind)
-		$(this).find('#contSex').text(contSex);
-		$(this).find('#contBirthday').text(contBirthday);
+		var modal = $(this)
+		modal.find('#contName').text(contName);
+		//modal.find('#contKind').text(contKind)
+		modal.find('#contSex').text(contSex);
+		modal.find('#contBirthday').text(contBirthday);
 	});
-		  
+	
+	$( "label" ).find( "span" ).css( "color", "red" );
 });

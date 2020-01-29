@@ -26,14 +26,15 @@
 	          <span aria-hidden="true">&times;</span>
 	        </button>
 	      </div>
-	      <div class="modal-body">
-	        	<form>			  
+	      <div class="modal-body" >
+	        	<form name="addAnimal">			  
 				  <div class="form-group">
 						<label for="InputName">Nikname animal</label>
-						<input type="text" class="form-control" id="InputName" placeholder="Sharik">
-				    
+						<input type="text" ng-model="answer.name" class="form-control" id="InputName" placeholder="Sharik">
+				   </div>
+				   <div class="form-group">  
 					    <label for="FormControlSelectKind">Kind of animal</label>
-					    <select class="form-control" id="FormControlSelectKind">
+					    <select ng-model="answer.kind" class="form-control" id="FormControlSelectKind">
 					      <option></option>
 					      <option>Dog</option>
 					      <option>Cat</option>
@@ -41,22 +42,24 @@
 					      <option>Bird</option>
 					      <option>Reptile</option>				      
 					    </select>
-					    
+					</div>    
+					<div class="form-group">    
 					    <label for="FormControlSelectSex">Sex</label>
-					    <select class="form-control" id="FormControlSelectSex">
+					    <select ng-model="answer.sex" class="form-control" id="FormControlSelectSex">
 					      <option></option>
 					      <option>Male</option>
 					      <option>Female</option>
 					    </select>
-					    
+					 </div>   
+					 <div class="form-group">   
 					    <label for="FormControlBirthday">Date birthday</label>
-					    <input type="date" class="form-control" id="date" name="date">
-				  </div>			 
+					    <input type="date" ng-model="answer.birthday" class="form-control" id="date" name="date">
+				    </div>			 
 				</form>
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
-	        <button type="button" class="btn btn-primary btn-sm">Add</button>
+	        <button type="submit" ng-click="save(answer, addAnimal)" class="btn btn-primary btn-sm" data-dismiss="modal">Add</button>
 	      </div>
 	    </div>
 	  </div>
