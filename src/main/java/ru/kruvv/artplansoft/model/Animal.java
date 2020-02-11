@@ -31,8 +31,8 @@ public class Animal implements ComboListItem {
 	private String name;
 	private String sex;	
 	private Date birthday;
-	@ManyToOne
-	@JoinColumn(name = "kind_id")
-	private Kind kind;
+//	@ManyToOne
+//	@JoinColumn(name = "kind_id")
+//	private Kind kind;
 	
 }

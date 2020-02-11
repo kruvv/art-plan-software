@@ -12,8 +12,8 @@ define(function() {
 						routie('animals');
 					}
 	        },    
-	        { template:"Row 1" }, //first row
-	        { template:"Row 2" }  //second row
+	        { template:"Row 1" } //first row
+	       
 	    ]
 	}
 });

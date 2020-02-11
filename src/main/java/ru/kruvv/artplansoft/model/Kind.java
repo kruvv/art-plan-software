@@ -18,13 +18,13 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "kinds")
-public class Kind {
+public class Kind implements ComboListItem {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	 private Long id; 
 	
-	private String type;
+	private String name;
 	
 //	@OneToMany(mappedBy = "kind")
 //	private List<Animal> type_animal;

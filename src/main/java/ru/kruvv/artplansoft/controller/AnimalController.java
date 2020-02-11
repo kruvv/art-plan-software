@@ -14,7 +14,7 @@ import ru.kruvv.artplansoft.repo.AnimalRepo;
  *
  */
 @RestController
-@RequestMapping("/api/animals")
+@RequestMapping("/api/animal")
 public class AnimalController extends AbstractRestController<Animal, AnimalRepo>{
 	
 	public AnimalController(AnimalRepo repo) {
