@@ -13,7 +13,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import lombok.Data;
+import ru.kruvv.artplansoft.util.EntityIdResolver;
 
 
 /**
@@ -23,6 +28,12 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "animals")
+@JsonIdentityInfo(
+		generator = ObjectIdGenerators.PropertyGenerator.class,
+		scope = Animal.class,
+		resolver = EntityIdResolver.class,
+		property = "id"
+		)
 public class Animal implements ComboListItem {
 	
 	@Id
@@ -31,8 +42,9 @@ public class Animal implements ComboListItem {
 	private String name;
 	private String sex;	
 	private Date birthday;
-//	@ManyToOne
-//	@JoinColumn(name = "kind_id")
-//	private Kind kind;
+	
+	@ManyToOne
+	@JsonIdentityReference(alwaysAsId = true)
+	private Kind kind;
 	
 }

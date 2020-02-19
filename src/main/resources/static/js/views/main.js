@@ -1,19 +1,8 @@
-define(function() {
-	return {
-	    type: 'line',
-	    height: 400,
-	    rows:[
-	    	{ view:"template", 
-	            type:"header", template:"for ArtPlanSoftware" },
-	        {
-	            	view: 'button',
-	            	label: 'Animals',
-	            	click: function() {
-						routie('animals');
-					}
-	        },    
-	        { template:"Row 1" } //first row
-	       
-	    ]
-	}
+define([ 'components/listPage' ], function(listPage) {
+	return listPage('main', 'Hello', [ {
+		template : "Row 1"	}, {
+		cols : [ {template : "Column 1"} ]
+	} ] )
+		
+	
 });
